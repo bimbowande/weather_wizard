@@ -19,6 +19,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #fff;
 }
 
 code {
@@ -28,4 +29,14 @@ code {
 
 .remove_scale {
   transform: scale(1.1);
+}
+
+.blur_effect {
+  border-left: 0.0013rem solid rgba(255, 255, 255, 0.3);
+}
+
+.text-bg {
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
