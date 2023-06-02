@@ -5,23 +5,31 @@ interface ISelect {
   label?: string;
   value: any;
   inputName: any;
-  onChange?: (e: any) => void;
+  // eslint-disable-next-line no-unused-vars
+  onchange?: (e: any) => void;
   optionValue?: string[];
   onFocus?: (e: any) => void;
   className?: string;
+  data: any;
 }
 
-export const SelectInput: React.FC<ISelect> = () => {
+export const SelectInput: React.FC<ISelect> = ({ data, onchange, value }) => {
+  console.log("data", data);
   return (
     <select
       id="countries"
-      className="bg-transparent border border-[#424040] text-[#fff] text-sm rounded-lg block w-full p-3.5 dark:border-gray-600   "
+      className="bg-transparent border border-[#424040] text-[#fff] text-sm rounded-lg block w-full p-3.5 dark:border-gray-600"
+      onChange={(e) => onchange?.(e)}
     >
-      <option selected>Choose a country</option>
-      <option value="US">United States</option>
-      <option value="CA">Canada</option>
-      <option value="FR">France</option>
-      <option value="DE">Germany</option>
+      <option selected>
+        {value?.name} | {value?.capital}
+      </option>
+      {!!data &&
+        data.map((d: any, i: any) => (
+          <option key={i} value={d?.capital}>
+            {d.capital} , {d.name}
+          </option>
+        ))}
     </select>
   );
 };

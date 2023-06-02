@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import rain from "../assets/images/raining.jpg";
-import { SelectInput } from "./Input/select";
 import { Header } from "./Header/Header";
 import { Line } from "./Line/Line";
 import { Text } from "./Text/Text";
 import { InfoBox } from "./WeatherBox/InfoBox";
 import { ForeCast } from "./WeatherBox/ForeCast";
+import { CountriesList } from "./CountryList/CountriesList";
+import { Overlay } from "./Overlay/Overlay";
+import { useQuery } from "@tanstack/react-query";
+import fetchCountries from "../services/fetchCountries";
 
 export const WeatherComp = () => {
+  const [city, setCity] = useState();
+
+  const results = useQuery(["countries"], fetchCountries);
+  if (results.isLoading) return <>starting</>;
+  const country = results?.data?.data;
+  const tempValue = country?.[110];
+  console.log(tempValue);
+  const updateCity = (e: any) => {
+    setCity(e.target.value);
+    console.log(e.target.value);
+  };
+
   return (
-    <div className="  overflow-hidden h-full w-full rubik-font  bg-cover flex justify-center items-center ">
-      <div
-        style={{ backgroundImage: `url(${rain})` }}
-        className="  bg-blend-overlay  blur bg-[#0a0e00a6] h-[100%] w-full scale-110 remove_scale "
-      ></div>
+    <div className="overflow-hidden h-full w-full rubik-font  bg-cover flex justify-center items-center">
+      <Overlay />
       <div
         style={{ backgroundImage: `url(${rain})` }}
         className="h-[95%]  w-[95%] bg-transparent border-[#29342fb8] border-[12px] rounded-2xl flex absolute"
@@ -45,12 +57,14 @@ export const WeatherComp = () => {
         </div>
         <div className="flex-auto w-1 backdrop-blur-[15px] bg-blend-exclusion bg-[#4d5c6b18] blur_effect">
           <div className="p-5">
-            <div className="my-5 px-5 ">
-              <SelectInput value={undefined} inputName={undefined} />
-            </div>
+            <CountriesList
+              defaultValue={tempValue}
+              data={country && country}
+              onsetCity={updateCity}
+            />
             <div className="text-center">
               <Header text="11&deg;C" classStyle="text-[100px]  text-[#fff]" />
-              <p className="text-[#9e9797] ">Northwest , 39km/hr</p>
+              <p className="text-[#9e9797] ">{city}</p>
             </div>
             <Line classStyle={`my-3`} />
             <Header
