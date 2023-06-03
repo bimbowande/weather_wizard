@@ -1,7 +1,7 @@
 import React from "react";
 import { CloudDrizzle } from "lucide-react";
 
-export const ForeCast: React.FC<{}> = () => {
+export const ForeCastComp: React.FC<{}> = () => {
   return (
     <div className="flex gap-4  justify-center mb-5 ">
       <div className="bg-[#414140] w-[55px] h-[55px] flex justify-center items-center rounded-lg ">

@@ -14,14 +14,13 @@ interface ISelect {
 }
 
 export const SelectInput: React.FC<ISelect> = ({ data, onchange, value }) => {
-  console.log("data", data);
   return (
     <select
       id="countries"
       className="bg-transparent border border-[#424040] text-[#fff] text-sm rounded-lg block w-full p-3.5 dark:border-gray-600"
       onChange={(e) => onchange?.(e)}
     >
-      <option selected>
+      <option>
         {value?.name} | {value?.capital}
       </option>
       {!!data &&
