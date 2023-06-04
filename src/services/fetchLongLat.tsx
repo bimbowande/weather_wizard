@@ -5,7 +5,7 @@ const fetchLongLat = async ({ queryKey }: any) => {
 
   const apiRes = await fetch(getCityLongLat(name), {
     headers: {
-        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       "X-Api-Key": `${process.env.REACT_APP_API_NINJA}`,
     },
   });

@@ -4,9 +4,10 @@ import { SelectInput } from "../Input/select";
 export const CountriesList: React.FC<{
   data: any;
   onsetCity: (e: any) => void;
-  defaultValue: string;
+  defaultValue: any;
 }> = ({ data, onsetCity, defaultValue }) => {
   if (!data) return <h3>Fetching</h3>;
+  console.log("defualt", defaultValue);
   return (
     <div className="my-5 px-5">
       <SelectInput

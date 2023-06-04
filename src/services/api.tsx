@@ -9,4 +9,6 @@ export const getCityLongLat = (name: string) =>
 // get weather info
 export const getWeatherInfo = (lat: number, long: number) =>
   // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-  `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely&appid=${process.env.REACT_APP_API_OPEN_WEATHER}`;
+  `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}& exclude=minutely&appid=${process.env.REACT_APP_API_OPEN_WEATHER}&units="metric"&lang='en'`;
+
+// `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${lat}&lon=${long}&appid=${process.env.REACT_APP_API_OPEN_WEATHER}`;

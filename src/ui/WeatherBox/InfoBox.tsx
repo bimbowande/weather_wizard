@@ -1,16 +1,28 @@
 import React from "react";
 import { Line } from "../Line/Line";
-import { CloudDrizzle } from "lucide-react";
-
-export const InfoBox: React.FC = () => {
+import { getTime, fahrenheitToC } from "../../lib";
+export const InfoBox: React.FC<{
+  timeData: {
+    dt: number;
+    temp: number;
+    dew_point: number;
+    weather: [{ icon: string; description: string }];
+  };
+}> = ({ timeData }) => {
   return (
     <div className={`bg-[#3e3e3c88] w-[80px] p-5 rounded-lg`}>
-      <p>09:00</p>
+      <p>{getTime(timeData?.dt)}</p>
       <Line classStyle={`mt-1`} />
       <div className="mt-3 text-center  flex justify-center">
-        <CloudDrizzle />
+        <img
+          src={`http://openweathermap.org/img/wn/${timeData.weather[0].icon}@4x.png`}
+          className="card-img-top"
+          alt={`${timeData?.weather[0].description}`}
+        />
       </div>
-      <h3 className="font-bold mt-4 text-[20px]">11&deg;C</h3>
+      <h3 className="font-bold mt-4 text-[20px]">
+        {fahrenheitToC(timeData?.temp)}&deg;
+      </h3>
     </div>
   );
 };
