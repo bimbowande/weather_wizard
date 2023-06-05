@@ -48,6 +48,8 @@ code {
   .main-container {
     overflow: auto !important;
     height: 100vh;
+    padding: 0;
+    width: 100%;
     overflow: scroll;
   }
   .mobile_view {
@@ -57,9 +59,14 @@ code {
     height: 100vh;
     width: 100%;
     overflow: scroll;
+    border: none;
+    border-radius: none;
   }
   .mobile_fix {
     min-height: 100vh;
+    padding: 0;
+    margin: 0;
     height: fit-content;
+    overflow: auto;
   }
 }

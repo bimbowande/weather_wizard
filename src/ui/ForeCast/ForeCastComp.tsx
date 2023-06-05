@@ -10,7 +10,7 @@ export const ForeCastComp: React.FC<{
   };
 }> = ({ data }) => {
   return (
-    <div className="flex gap-4  justify-center mb-5 ">
+    <div className="flex gap-6  justify-center mb-10 ">
       <div className="bg-[#414140] w-[55px] h-[55px] flex justify-center items-center rounded-lg ">
         <img
           src={`http://openweathermap.org/img/wn/${data?.weather?.[0]?.icon}@4x.png`}
