@@ -68,5 +68,6 @@ code {
     margin: 0;
     height: fit-content;
     overflow: auto;
+    padding-bottom: 50px;
   }
 }
