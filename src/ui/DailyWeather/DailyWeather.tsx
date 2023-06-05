@@ -2,16 +2,12 @@ import React from "react";
 import { Header } from "../Header/Header";
 import { Line } from "../Line/Line";
 import { InfoBox } from "../WeatherBox/InfoBox";
-import { Breathing } from "react-shimmer";
 
 export const DailyWeather: React.FC<{
   data: [];
   status: string;
   weather: [{ main: string; icon: string; description: string }];
 }> = ({ data, status, weather }) => {
-  if (status !== "success") {
-    return <Breathing width={50} height={50} />;
-  }
   const limitData = data?.splice(0, 15);
 
   return (

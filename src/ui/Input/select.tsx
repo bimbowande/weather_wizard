@@ -15,20 +15,23 @@ interface ISelect {
 
 export const SelectInput: React.FC<ISelect> = ({ data, onchange, value }) => {
   return (
-    <select
-      id="countries"
-      className="bg-transparent border border-[#424040] text-[#fff] text-sm rounded-lg block w-full p-3.5 dark:border-gray-600"
-      onChange={(e) => onchange?.(e)}
-    >
-      <option>
-        {value?.name} | {value?.capital}
-      </option>
-      {!!data &&
-        data.map((d: any, i: any) => (
-          <option key={i} value={d?.capital}>
-            {d.capital} , {d.name}
-          </option>
-        ))}
-    </select>
+    <>
+      <label className="my-5 ">Select a country</label>
+      <select
+        id="countries"
+        className="bg-transparent border border-[#424040] text-[#fff] text-sm rounded-lg block w-full p-3.5 dark:border-gray-600 mt-2"
+        onChange={(e) => onchange?.(e)}
+      >
+        <option>
+          {value?.name} | {value?.capital}
+        </option>
+        {!!data &&
+          data.map((d: any, i: any) => (
+            <option key={i} value={d?.capital}>
+              {d.capital} , {d.name}
+            </option>
+          ))}
+      </select>
+    </>
   );
 };

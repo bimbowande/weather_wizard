@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useMediaQuery } from "usehooks-ts";
 import { Overlay } from "./Overlay/Overlay";
 import rain from "../assets/images/raining.jpg";
 
@@ -9,7 +10,10 @@ import { Main } from "./Containers/Main/Main";
 import { Side } from "./Containers/Side/Side";
 
 export const Layout: React.FC<{ countries: any }> = ({ countries }) => {
-  const tempValue: any = countries?.[110] ?? "";
+  const filterCountry = countries.filter(
+    (d: any) => d.capital !== "" && d.name !== ""
+  );
+  const tempValue: any = filterCountry?.[110] ?? "";
   const [city, setCity] = useState<string>(tempValue?.capital);
 
   // coordinate
@@ -17,6 +21,7 @@ export const Layout: React.FC<{ countries: any }> = ({ countries }) => {
   const weather = useWeather(coordRes?.[0]);
   const weatherInfo = weather?.[0];
   const weatherStatus = weather?.[1];
+  const isLargeDevice = useMediaQuery("only screen and (min-width : 1201px)");
 
   useEffect(() => {}, [city, coordRes, weather]);
 
@@ -25,13 +30,13 @@ export const Layout: React.FC<{ countries: any }> = ({ countries }) => {
   };
 
   return (
-    <div className="overflow-hidden h-full w-full rubik-font  bg-cover flex justify-center items-center">
+    <div className="overflow-hidden h-full w-full rubik-font  bg-cover flex justify-center items-center main-container ">
       <Overlay />
       <div
         style={{ backgroundImage: `url(${rain})` }}
-        className="h-[95%]  w-[95%] bg-transparent border-[#29342fb8] border-[12px] rounded-2xl flex absolute"
+        className="h-[95%] w-[95%] bg-transparent border-[#29342fb8] border-[12px] rounded-2xl flex absolute class-fill "
       >
-        <Main data={weatherInfo} status={weatherStatus} />
+        {isLargeDevice && <Main data={weatherInfo} status={weatherStatus} />}
 
         <Side
           data={weatherInfo}
@@ -39,7 +44,7 @@ export const Layout: React.FC<{ countries: any }> = ({ countries }) => {
           city={city}
           updateCity={updateCity}
           status={weatherStatus}
-          countries={countries}
+          countries={filterCountry}
         />
       </div>
     </div>

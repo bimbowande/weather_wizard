@@ -7,4 +7,5 @@ export const useLongLat = (city: string) => {
     const results = useQuery(["lat_long", city], fetchLongLat);
     return [(results?.data && results?.data[0]) ?? [], results.status];
   }
+  return [{ status: "error" }];
 };

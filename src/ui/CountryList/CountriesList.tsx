@@ -6,8 +6,7 @@ export const CountriesList: React.FC<{
   onsetCity: (e: any) => void;
   defaultValue: any;
 }> = ({ data, onsetCity, defaultValue }) => {
-  if (!data) return <h3>Fetching</h3>;
-  console.log("defualt", defaultValue);
+  if (!data) return <h3>Fetching data...</h3>;
   return (
     <div className="my-5 px-5">
       <SelectInput
