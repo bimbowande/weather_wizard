@@ -10,10 +10,7 @@ import { Main } from "./Containers/Main/Main";
 import { Side } from "./Containers/Side/Side";
 
 export const Layout: React.FC<{ countries: any }> = ({ countries }) => {
-  const filterCountry = countries.filter(
-    (d: any) => d.capital !== "" && d.name !== ""
-  );
-  const tempValue: any = filterCountry?.[110] ?? "";
+  const tempValue: any = countries?.[110] ?? "";
   const [city, setCity] = useState<string>(tempValue?.capital);
 
   // coordinate
@@ -44,7 +41,7 @@ export const Layout: React.FC<{ countries: any }> = ({ countries }) => {
           city={city}
           updateCity={updateCity}
           status={weatherStatus}
-          countries={filterCountry}
+          countries={countries}
         />
       </div>
     </div>
