@@ -14,7 +14,7 @@ export const ForeCastWeather: React.FC<{ data: []; status: string }> = ({
         classStyle="text-center text-[#fff] text-[25px] mt-7 font-bold md:text[20px] "
         text={`The Next Days Forecast`}
       />
-      <div className="mt-6  lg:h-[500px] sm:h-[300px] md:h-[300px] lg:overflow-scroll mobile_view  ">
+      <div className="mt-6  lg:h-[500px] h-[auto] lg:overflow-scroll mobile_view  ">
         {status === "error" ? (
           <p> No data found</p>
         ) : (

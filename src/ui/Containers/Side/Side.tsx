@@ -22,7 +22,7 @@ export const Side: React.FC<{
   const isLargeDevice = useMediaQuery("only screen and (min-width :1201px)");
 
   return (
-    <div className="flex-auto w-1 backdrop-blur-[15px] bg-blend-exclusion bg-[#06060718] blur_effect h-[auto] ">
+    <div className="flex-auto w-1 backdrop-blur-[15px] bg-blend-exclusion bg-[#06060718] blur_effect h-[auto] mobile_fix ">
       <div className="p-5 h-[100%]  ">
         <CountriesList
           defaultValue={tempCity}

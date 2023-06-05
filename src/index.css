@@ -48,13 +48,18 @@ code {
   .main-container {
     overflow: auto !important;
     height: 100vh;
+    overflow: scroll;
   }
   .mobile_view {
-    height: 200px;
-    overflow: scroll;
+    height: 100%;
   }
   .class-fill {
     height: 100vh;
     width: 100%;
+    overflow: scroll;
+  }
+  .mobile_fix {
+    min-height: 100vh;
+    height: fit-content;
   }
 }
