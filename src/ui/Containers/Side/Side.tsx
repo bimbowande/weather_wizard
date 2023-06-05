@@ -30,9 +30,9 @@ export const Side: React.FC<{
           onsetCity={updateCity}
         />
 
-        {status === "error" && <p>Data cannot</p>}
-
-        {status !== "success" ? (
+        {status === "error" ? (
+          <p>No weather data for this location</p>
+        ) : status !== "success" ? (
           <LoaderComp />
         ) : (
           <div className="text-center ">

@@ -15,7 +15,11 @@ export const ForeCastWeather: React.FC<{ data: []; status: string }> = ({
         text={`The Next Days Forecast`}
       />
       <div className="mt-6  lg:h-[500px] sm:h-[300px] md:h-[300px] lg:overflow-scroll mobile_view  ">
-        {status !== "success" && <LoaderComp />}
+        {status === "error" ? (
+          <p> No data found</p>
+        ) : (
+          status !== "success" && <LoaderComp />
+        )}
         {!!data &&
           data.map((item: any, index: number) => (
             <ForeCastComp data={item} key={index} />

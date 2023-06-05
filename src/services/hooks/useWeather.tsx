@@ -10,5 +10,5 @@ export const useWeather = (coord: any) => {
     );
     return [result.data, result.status];
   }
-  return [{ status: "error" }];
+  return [{ data: [] }, { status: "error" }];
 };

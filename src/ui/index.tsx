@@ -15,7 +15,9 @@ export const WeatherComp = () => {
   // store country in an object
   const countries = results?.data?.data;
 
+  const filter = countries.filter((data:any)=> data?.capital !== '');
+
   // init country
 
-  return <Layout countries={countries} />;
+  return <Layout countries={filter} />;
 };

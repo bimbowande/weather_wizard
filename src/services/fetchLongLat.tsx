@@ -3,6 +3,9 @@ import { getCityLongLat } from "./api";
 const fetchLongLat = async ({ queryKey }: any) => {
   const name = queryKey[1];
 
+  if (!name) {
+    return [{ response: "error" }];
+  }
   const apiRes = await fetch(getCityLongLat(name), {
     headers: {
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions

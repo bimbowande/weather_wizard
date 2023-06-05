@@ -10,17 +10,20 @@ import { Main } from "./Containers/Main/Main";
 import { Side } from "./Containers/Side/Side";
 
 export const Layout: React.FC<{ countries: any }> = ({ countries }) => {
-  const tempValue: any = countries?.[110] ?? "";
-  const [city, setCity] = useState<string>(tempValue?.capital);
+  const tempValue: any = countries?.[231] ?? "";
+  const [city, setCity] = useState<string>(
+    tempValue?.capital ?? tempValue?.name
+  );
+  const isLargeDevice = useMediaQuery("only screen and (min-width : 1201px)");
 
   // coordinate
   const coordRes = useLongLat(city);
-  const weather = useWeather(coordRes?.[0]);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const weather = !!coordRes && useWeather(coordRes?.[0]);
   const weatherInfo = weather?.[0];
   const weatherStatus = weather?.[1];
-  const isLargeDevice = useMediaQuery("only screen and (min-width : 1201px)");
 
-  useEffect(() => {}, [city, coordRes, weather]);
+  useEffect(() => {}, [city]);
 
   const updateCity = (e: any) => {
     setCity(e.target.value);
