@@ -17,15 +17,16 @@ export const Layout: React.FC<{ countries: any }> = ({ countries }) => {
   const isLargeDevice = useMediaQuery("only screen and (min-width : 1201px)");
 
   // coordinate
-  const coordRes = useLongLat(city);
+  const coordRes: any = useLongLat(city);
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const weather = !!coordRes && useWeather(coordRes?.[0]);
+  const weather: any = useWeather(coordRes?.[0]);
   const weatherInfo = weather?.[0];
   const weatherStatus = weather?.[1];
 
-  useEffect(() => {}, [city]);
+  useEffect(() => {}, [city, weather, coordRes]);
 
   const updateCity = (e: any) => {
+    console.log(e.target.value);
     setCity(e.target.value);
   };
 

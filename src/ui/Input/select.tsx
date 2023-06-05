@@ -22,9 +22,6 @@ export const SelectInput: React.FC<ISelect> = ({ data, onchange, value }) => {
         className="bg-transparent border border-[#424040] text-[#fff] text-sm rounded-lg block w-full p-3.5 dark:border-gray-600 mt-2"
         onChange={(e) => onchange?.(e)}
       >
-        <option>
-          {value?.name} | {value?.capital}
-        </option>
         {!!data &&
           data.map((d: any, i: any) => (
             <option key={i} value={d?.capital}>
