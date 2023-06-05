@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/weather_wizard/static/css/main.f07ce674.css",
-    "main.js": "/weather_wizard/static/js/main.1caf8d3e.js",
+    "main.css": "/weather_wizard/static/css/main.bedf5eea.css",
+    "main.js": "/weather_wizard/static/js/main.a08610d9.js",
     "static/js/787.ef10e2cf.chunk.js": "/weather_wizard/static/js/787.ef10e2cf.chunk.js",
     "static/media/raining.jpg": "/weather_wizard/static/media/raining.5e14f79ec1423d9c0afc.jpg",
     "index.html": "/weather_wizard/index.html",
-    "main.f07ce674.css.map": "/weather_wizard/static/css/main.f07ce674.css.map",
-    "main.1caf8d3e.js.map": "/weather_wizard/static/js/main.1caf8d3e.js.map",
+    "main.bedf5eea.css.map": "/weather_wizard/static/css/main.bedf5eea.css.map",
+    "main.a08610d9.js.map": "/weather_wizard/static/js/main.a08610d9.js.map",
     "787.ef10e2cf.chunk.js.map": "/weather_wizard/static/js/787.ef10e2cf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f07ce674.css",
-    "static/js/main.1caf8d3e.js"
+    "static/css/main.bedf5eea.css",
+    "static/js/main.a08610d9.js"
   ]
 }
