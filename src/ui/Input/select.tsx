@@ -1,9 +1,6 @@
 import React from "react";
 import Select from "react-select";
-import { ICountry,ISelect } from "../../domain/interface";
-
-
-
+import { ICountry, ISelect } from "../../domain/interface";
 
 const customStyles = {
   option: (provided: any) => ({
@@ -11,6 +8,7 @@ const customStyles = {
     color: "black",
     padding: 5,
     backgroundColor: "#ccc",
+    cursor: "pointer",
   }),
 };
 export const SelectInput: React.FC<ISelect> = ({ data, onchange, value }) => {
