@@ -26,8 +26,10 @@ export const Layout: React.FC<{ countries: any }> = ({ countries }) => {
   useEffect(() => {}, [city, weather, coordRes]);
 
   const updateCity = (e: any) => {
-    console.log(e.target.value);
-    setCity(e.target.value);
+    console.log(e.capital);
+    setCity(e.capital);
+    // console.log(e.target.value);
+    // setCity(e.target.value);
   };
 
   return (

@@ -1,6 +1,8 @@
 import React from "react";
 import { convertUnixToDate, fahrenheitToC } from "../../lib";
 
+
+
 export const ForeCastComp: React.FC<{
   data: {
     temp: any;
