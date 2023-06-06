@@ -1,28 +1,16 @@
 import React from "react";
 import Select from "react-select";
+import { ICountry,ISelect } from "../../domain/interface";
 
-interface ICountry {
-  name: string;
-  capital: string;
-}
-interface ISelect {
-  initValue?: string;
-  label?: string;
-  value: any;
-  inputName: any;
-  // eslint-disable-next-line no-unused-vars
-  onchange?: (e: any) => void;
-  optionValue?: string[];
-  onFocus?: (e: any) => void;
-  className?: string;
-  data: ICountry[];
-}
+
+
 
 const customStyles = {
   option: (provided: any) => ({
     ...provided,
     color: "black",
     padding: 5,
+    backgroundColor: "#ccc",
   }),
 };
 export const SelectInput: React.FC<ISelect> = ({ data, onchange, value }) => {
@@ -35,7 +23,6 @@ export const SelectInput: React.FC<ISelect> = ({ data, onchange, value }) => {
         getOptionValue={(v: ICountry) => v?.capital}
         options={data && data}
         styles={customStyles}
-        
       />
       {/* <select
         id="countries"
